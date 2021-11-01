@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RevMapper">
+
+	<select id="selectAll" resultType="RevVO">
+		SELECT * FROM TB_REV
+	</select>
+
+	<select id="selectDetail" parameterType="int"
+		resultType="RevVO">
+		SELECT * FROM TB_REV WHERE REV_NO=#{rev_no}
+	</select>
+
+	<insert id="insert" parameterType="RevVO">
+		INSERT INTO TB_REV (REV_NO, REV_ID, RS_NO, REV_TIME, CANCEL_YN, CANCEL_TIME)
+		VALUES (#{rev_no}, #{rev_id}, #{rs_no}, NOW(), 'N', NULL)
+	</insert>
+	<update id="update" parameterType="RevVO">
+		UPDATE TB_REV
+		SET
+		REV_TIME=#{rev_time},
+		CANCEL_YN=#{cancel_yn},
+		CANCEL_TIME=#{cancel_time}
+		WHERE
+		REV_ID=#{rev_id}
+	</update>
+	<delete id="delete" parameterType="int">
+		DELETE FROM TB_REV
+		WHERE REV_ID=#{rev_id}
+	</delete>
+
+</mapper>

@@ -1,0 +1,23 @@
+<!-- @TODO 
+리스트 페이지 (전체 / 카테고리1 / 카테고리2 공용!)
+1. 마켓컬리 전체 화면처럼 퍼블리싱 (HTML+CSS), 푸터
+2. Controller 에 특정 URL 작성 + header.html에 전체/카테고리1/카테고리2에 링크 연결!
+3. RevDao 이용해서 selectAll 호출하기!
+
+* 카테고리 데이터가 없기 때문에, 배제하고 만들기!
+ -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div>
+	hi11
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>

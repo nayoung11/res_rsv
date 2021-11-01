@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div class="content">
+		<div class="top-banner"></div>
+		
+		<section class="main-item">
+			<div class="main-item-wrapper">
+				<h2>이 레스토랑 어때요?</h2>
+				<ul class="item-list">
+					<li>
+						<a href="list.html">
+							<img class="thumb" alt="res-thumb" src="#">
+							<span class="item-title">레스토랑1</span>
+						</a>
+						<span class="item-addr">경기도 경기도 경기도 경기도</span>
+					</li>
+					<li>
+						<a href="#">
+							<img class="thumb" alt="res-thumb" src="#">
+							<span class="item-title">레스토랑1</span>
+						</a>
+						<span class="item-addr">경기도 경기도 경기도 경기도</span>
+					</li>
+					<li>
+						<a href="#">
+							<img class="thumb" alt="res-thumb" src="#">
+							<span class="item-title">레스토랑1</span>
+						</a>
+						<span class="item-addr">경기도 경기도 경기도 경기도</span>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>
