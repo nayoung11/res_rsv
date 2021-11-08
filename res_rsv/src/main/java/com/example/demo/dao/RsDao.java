@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.model.RsVO;
+import com.example.demo.util.Constant;
 
 @Repository
 public class RsDao {
@@ -32,6 +33,14 @@ public class RsDao {
 
 	public int delete(int no) {
 		return sqlsessiontemplate.delete("RsMapper.delete", no);
+	}
+	
+	public List<RsVO> selectRandomRs() {
+		return sqlsessiontemplate.selectList("RsMapper.selectRandomRs", Constant.RANDOM_COUNT);
+	}
+
+	public int updateRsViewCount(int no) {
+		return sqlsessiontemplate.update("RsMapper.updateRsViewCount", no);
 	}
 
 }

@@ -3,38 +3,120 @@ package com.example.demo.model;
 public class RsVO {
 	private int no;
 	private String nm;
-	private String post_code;
+	private String postCode;
 	private String addr;
-	private String better_addr;
-	
+	private String betterAddr;
+	private double rating;
+	private String priceGroup;
+	private String contact;
+	private String salesTime;
+	private String holiday;
+	private String parkingYn;
+	private String thumb;
+	private int viewCount;
+
 	public int getNo() {
 		return no;
 	}
+
 	public void setNo(int no) {
 		this.no = no;
 	}
+
 	public String getNm() {
 		return nm;
 	}
+
 	public void setNm(String nm) {
 		this.nm = nm;
 	}
-	public String getPost_code() {
-		return post_code;
+
+	public String getPostCode() {
+		return postCode;
 	}
-	public void setPost_code(String post_code) {
-		this.post_code = post_code;
+
+	public void setPostCode(String postCode) {
+		this.postCode = postCode;
 	}
+
 	public String getAddr() {
 		return addr;
 	}
+
 	public void setAddr(String addr) {
 		this.addr = addr;
 	}
-	public String getBetter_addr() {
-		return better_addr;
+
+	public String getBetterAddr() {
+		return betterAddr;
 	}
-	public void setBetter_addr(String better_addr) {
-		this.better_addr = better_addr;
+
+	public void setBetterAddr(String betterAddr) {
+		this.betterAddr = betterAddr;
 	}
+
+	public double getRating() {
+		return rating;
+	}
+
+	public void setRating(double rating) {
+		this.rating = rating;
+	}
+
+	public String getPriceGroup() {
+		return priceGroup;
+	}
+
+	public void setPriceGroup(String priceGroup) {
+		this.priceGroup = priceGroup;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getSalesTime() {
+		return salesTime;
+	}
+
+	public void setSalesTime(String salesTime) {
+		this.salesTime = salesTime;
+	}
+
+	public String getHoliday() {
+		return holiday;
+	}
+
+	public void setHoliday(String holiday) {
+		this.holiday = holiday;
+	}
+
+	public String getParkingYn() {
+		return parkingYn;
+	}
+
+	public void setParkingYn(String parkingYn) {
+		this.parkingYn = parkingYn;
+	}
+
+	public String getThumb() {
+		return thumb;
+	}
+
+	public void setThumb(String thumb) {
+		this.thumb = thumb;
+	}
+
+	public int getViewCount() {
+		return viewCount;
+	}
+
+	public void setViewCount(int viewCount) {
+		this.viewCount = viewCount;
+	}
+
 }

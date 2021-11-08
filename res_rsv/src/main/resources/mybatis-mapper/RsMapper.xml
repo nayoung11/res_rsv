@@ -4,31 +4,72 @@
 <mapper namespace="RsMapper">
 
 	<select id="selectAll" resultType="RsVO">
-		SELECT * FROM TB_RS
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM 
+			TB_RS
 	</select>
 
 	<select id="selectDetail" parameterType="int"
 		resultType="RsVO">
-		SELECT * FROM TB_RS WHERE NO=#{no}
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM 
+			TB_RS 
+		WHERE 
+			NO=#{no}
 	</select>
 
 	<insert id="insert" parameterType="RsVO">
-		INSERT INTO TB_RS (NO, NM, POST_CODE, ADDR, BETTER_ADDR)
-		VALUES (#{no}, #{nm}, #{post_code}, #{addr}, #{better_addr})
+		INSERT INTO TB_RS (NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB)
+		VALUES (#{no}, #{nm}, #{post_code}, #{addr}, #{better_addr}, 
+			#{rating}, #{price_group}, #{contact}, #{sales_time},
+			#{holiday}, #{parking_yn}, #{thumb})
 	</insert>
 	<update id="update" parameterType="RsVO">
 		UPDATE TB_RS
 		SET
-		NM=#{nm},
-		POST_CODE=#{post_code},
-		ADDR=#{addr},
-		BETTER_ADDR=#{better_addr}
+			NM=#{nm},
+			POST_CODE=#{post_code},
+			ADDR=#{addr},
+			BETTER_ADDR=#{better_addr},
+			RATING=#{rating},
+			PRICE_GROUP=#{price_group},
+			CONTACT=#{contact},
+			SALES_TIME=#{sales_time},
+			HOLIDAY=#{holiday},
+			PARKING_YN=#{parking_yn},
+			THUMB=#{thumb}
 		WHERE
-		NO=#{no}
+			NO=#{no}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM TB_RS
-		WHERE NO=#{no}
+		WHERE
+			NO=#{no}
 	</delete>
+	
+	<select id="selectRandomRs" parameterType="int" resultType="RsVO">
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM tb_rs ORDER BY RAND() LIMIT #{randomCount}
+	</select>
+	
+	<update id="updateRsViewCount" parameterType="int">
+		UPDATE
+			TB_RS
+		SET
+			VIEW_COUNT = VIEW_COUNT + 1
+		WHERE
+			NO=#{no}
+	</update>
 
 </mapper>

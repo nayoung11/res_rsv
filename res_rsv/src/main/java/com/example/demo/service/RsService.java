@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.dao.RsDao;
 import com.example.demo.model.RsVO;
+import com.example.demo.util.Constant;
 
 @Service
 public class RsService {
@@ -32,6 +33,14 @@ public class RsService {
 	
 	public int delete(int no) {
 		return rsDao.delete(no);
+	}
+	
+	public List<RsVO> selectRandomRs() {
+		return rsDao.selectRandomRs();
+	}
+	
+	public int updateRsViewCount(int no) {
+		return rsDao.updateRsViewCount(no);
 	}
 
 }

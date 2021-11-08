@@ -17,15 +17,6 @@ section.main-item {
     margin: 50px 0;
 }
 
-ul.item-list {
-    display: flex;
-}
-
-ul.item-list > li {
-    width: 33.3%;
-    margin: 0 10px;
-}
-
 img.thumb {
     width: 100%;
     display: inline-block;
