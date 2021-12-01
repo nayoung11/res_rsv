@@ -19,7 +19,7 @@ $(document).ready(function () {
 				success : function (data) {
 					for (var i=0; i<data.length; i++) {
 						var html = '<li>';
-							html+= '<a href="/res/detail/"' + data[i].no + '>';
+							html+= '<a href="/res/detail/' + data[i].no + '">';
 							html+= '	<img class="thumb" alt="res-thumb" src="' + data[i].thumb + '">';
 							html+= '	<span class="item-title">' + data[i].nm + '</span>';
 							html+= '</a>';

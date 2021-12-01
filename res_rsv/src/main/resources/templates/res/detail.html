@@ -56,12 +56,14 @@
 								<dd th:if="${rs.parkingYn.equals('Y')}">가능</dd>
 								<dd th:if="${rs.parkingYn.equals('N')}">불가능</dd>
 							</dl>
-							<div class="connect_link" th:each="item: ${rsSnsList}">
-								<div class="insta" th:if="${item.snsType == 1}">
-								<a class="insta" th:href="${item.snsUrl}" target="_blank"><img class="insta" src="/img/insta.png" alt="insta_link"></a>
-								</div>
-								<div class="face" th:if="${item.snsType == 2}">
-								<a class="face" th:href="${item.snsUrl}" target="_blank"><img class="face" src="/img/face.png" alt="face_link"></a>
+							<div class="connect_link">
+								<div class="connect_link_item" th:each="item: ${rsSnsList}">
+									<div class="insta" th:if="${item.snsType == 1}">
+										<a class="insta" th:href="${item.snsUrl}" target="_blank"><img class="insta" src="/img/insta.png" alt="insta_link"></a>
+									</div>
+									<div class="face" th:if="${item.snsType == 2}">
+										<a class="face" th:href="${item.snsUrl}" target="_blank"><img class="face" src="/img/face.png" alt="face_link"></a>
+									</div>
 								</div>
 							</div>
 						</div>
