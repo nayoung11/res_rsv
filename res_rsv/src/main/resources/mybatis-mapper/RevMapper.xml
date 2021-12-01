@@ -9,25 +9,25 @@
 
 	<select id="selectDetail" parameterType="int"
 		resultType="RevVO">
-		SELECT * FROM TB_REV WHERE REV_NO=#{rev_no}
+		SELECT * FROM TB_REV WHERE REV_NO=#{revNo}
 	</select>
 
 	<insert id="insert" parameterType="RevVO">
 		INSERT INTO TB_REV (REV_NO, REV_ID, RS_NO, REV_TIME, CANCEL_YN, CANCEL_TIME)
-		VALUES (#{rev_no}, #{rev_id}, #{rs_no}, NOW(), 'N', NULL)
+		VALUES (#{revNo}, #{revId}, #{rsNo}, NOW(), 'N', NULL)
 	</insert>
 	<update id="update" parameterType="RevVO">
 		UPDATE TB_REV
 		SET
-		REV_TIME=#{rev_time},
-		CANCEL_YN=#{cancel_yn},
-		CANCEL_TIME=#{cancel_time}
+		REV_TIME=#{revTime},
+		CANCEL_YN=#{cancelYn},
+		CANCEL_TIME=#{cancelTime}
 		WHERE
-		REV_ID=#{rev_id}
+		REV_ID=#{revId}
 	</update>
 	<delete id="delete" parameterType="int">
 		DELETE FROM TB_REV
-		WHERE REV_ID=#{rev_id}
+		WHERE REV_ID=#{revId}
 	</delete>
 
 </mapper>

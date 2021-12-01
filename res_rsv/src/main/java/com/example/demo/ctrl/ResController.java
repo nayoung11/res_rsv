@@ -3,6 +3,7 @@ package com.example.demo.ctrl;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,6 +21,7 @@ import com.example.demo.model.RsVO;
 import com.example.demo.service.MbrService;
 import com.example.demo.service.RsService;
 import com.example.demo.service.RsSnsService;
+import com.example.demo.util.AjaxResult;
 
 @RequestMapping("/res")
 @Controller
@@ -166,6 +168,40 @@ public class ResController {
 		
 		model.addAttribute("randomRsList", randomRsList);
 		return "res/login";
+	}
+	
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+		session.removeAttribute("loginMbrVO");
+		return "redirect:/";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public AjaxResult loginProcess(@ModelAttribute MbrVO paramVO,
+			HttpSession session) {
+		AjaxResult result = new AjaxResult();
+		
+		MbrVO mbrVO = mbrService.selectDetail(paramVO.getId());
+		if (mbrVO != null) {
+			// 아이디가 있는 경우
+			if (mbrVO.getPw().equals(paramVO.getPw())) {
+				result.setMessage("로그인 성공.");
+				result.setCode(0);
+				result.setResult(true);
+				session.setAttribute("loginMbrVO", mbrVO);
+			} else {
+				result.setMessage("비밀번호가 틀렸습니다.");
+				result.setCode(2);
+				result.setResult(false);
+			}
+		} else {
+			result.setMessage("아이디가 존재하지 않습니다.");
+			result.setCode(1);
+			result.setResult(false);
+		}
+		
+		return result;
 	}
 
 

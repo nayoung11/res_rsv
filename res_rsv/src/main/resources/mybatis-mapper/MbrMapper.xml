@@ -7,26 +7,26 @@
 		SELECT * FROM TB_MBR
 	</select>
 
-	<select id="selectDetail" parameterType="int"
+	<select id="selectDetail" parameterType="string"
 		resultType="MbrVO">
 		SELECT * FROM TB_MBR WHERE ID=#{id}
 	</select>
 
 	<insert id="insert" parameterType="MbrVO">
 		INSERT INTO TB_MBR (ID, PW, NM, PHONE_NUM, EMAIL)
-		VALUES (#{id}, #{pw}, #{nm}, #{phone_num}, #{email})
+		VALUES (#{id}, #{pw}, #{nm}, #{phoneNum}, #{email})
 	</insert>
 	<update id="update" parameterType="MbrVO">
 		UPDATE TB_MBR
 		SET
 		PW=#{pw},
 		NM=#{nm},
-		PHONE_NUM=#{phone_num},
+		PHONE_NUM=#{phoneNum},
 		EMAIL=#{email}
 		WHERE
 		ID=#{id}
 	</update>
-	<delete id="delete" parameterType="int">
+	<delete id="delete" parameterType="string">
 		DELETE FROM TB_MBR
 		WHERE ID=#{id}
 	</delete>

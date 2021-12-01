@@ -17,8 +17,9 @@
 	</div>
 
 	<div class="floating-area">
-		<a href="/res/join">회원가입</a>
-		<a href="/res/login">로그인</a>
+		<a href="/res/join" th:if="${loginMbrVO == null}">회원가입</a>
+		<a href="/res/login" th:if="${loginMbrVO == null}">로그인</a>
+		<a href="/res/logout" th:if="${loginMbrVO != null}">로그아웃</a>
 		<a href="/res/cart"><img class="basket-btn" src="/img/carticon.png" alt="basket-btn"></a>
 	</div>
 </header>

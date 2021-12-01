@@ -590,6 +590,8 @@ button.btn_login {
 	background-color: #cccccc;
 	border: 0;
 	margin-left: 80px;
+	text-decoration: none;
+	color: #FFFFFF;
 }
 
 .btn_login>a {

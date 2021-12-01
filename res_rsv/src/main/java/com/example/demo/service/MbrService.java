@@ -12,7 +12,7 @@ import com.example.demo.model.MbrVO;
 public class MbrService {
 	
 	@Autowired
-	private static MbrDao mbrDao;
+	private MbrDao mbrDao;
 	
 	public List<MbrVO> selectAll(){
 		return mbrDao.selectAll();

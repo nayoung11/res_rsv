@@ -12,6 +12,18 @@ function joinMbr() {
 		return;
 	}
 	
+	if (pw.trim() == '') {
+		alert("비밀번호를 입력해주세요.");
+		$('#pw').focus();
+		return;
+	}
+	
+	if (pwCheck.trim() == '') {
+		alert("비밀번호 확인을 입력해주세요.");
+		$('#pwCheck').focus();
+		return;
+	}
+	
 	if (pw !== pwCheck) {
 		alert("비밀번호가 틀렸습니다.");
 		$('#pw').val("");
