@@ -43,4 +43,20 @@ public class RsService {
 		return rsDao.updateRsViewCount(no);
 	}
 
+	public List<RsVO> selectAllByCtgNo(String ctgNo) {
+		return rsDao.selectAllByCtgNo(ctgNo);
+	}
+
+	public List<RsVO> selectAllByCtgNoPaging(String ctgNo, int pageNum) {
+		return rsDao.selectAllByCtgNoPaging(ctgNo, pageNum);
+	}
+
+	public List<RsVO> selectAllPaging(int pageNum) {
+		return rsDao.selectAllPaging(pageNum);
+	}
+
+	public List<RsVO> searchListPaging(String searchKeyword, int i) {
+		return rsDao.searchListPaging(searchKeyword, i);
+	}
+
 }

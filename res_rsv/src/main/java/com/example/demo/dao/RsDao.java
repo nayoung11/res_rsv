@@ -1,6 +1,8 @@
 package com.example.demo.dao;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +43,35 @@ public class RsDao {
 
 	public int updateRsViewCount(int no) {
 		return sqlsessiontemplate.update("RsMapper.updateRsViewCount", no);
+	}
+
+	public List<RsVO> selectAllByCtgNo(String ctgNo) {
+		return sqlsessiontemplate.selectList("RsMapper.selectAllByCtgNo", ctgNo);
+	}
+
+	public List<RsVO> selectAllByCtgNoPaging(String ctgNo, int pageNum) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("ctgNo", ctgNo);
+		param.put("pageNum", pageNum);
+		
+		int offset = (pageNum - 1) * 6;
+		param.put("offset", offset);
+
+		return sqlsessiontemplate.selectList("RsMapper.selectAllByCtgNoPaging", param);
+	}
+
+	public List<RsVO> selectAllPaging(int pageNum) {
+		int offset = (pageNum - 1) * 6;
+		return sqlsessiontemplate.selectList("RsMapper.selectAllPaging", offset);
+	}
+
+	public List<RsVO> searchListPaging(String searchKeyword, int pageNum) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("searchKeyword", searchKeyword);
+		
+		int offset = (pageNum - 1) * 6;
+		param.put("offset", offset);
+		return sqlsessiontemplate.selectList("RsMapper.searchListPaging", param);
 	}
 
 }

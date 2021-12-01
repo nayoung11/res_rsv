@@ -14,6 +14,11 @@ public class RsVO {
 	private String parkingYn;
 	private String thumb;
 	private int viewCount;
+	
+	private String ctgNm;
+
+	private String searchKeyword;
+	
 
 	public int getNo() {
 		return no;
@@ -117,6 +122,22 @@ public class RsVO {
 
 	public void setViewCount(int viewCount) {
 		this.viewCount = viewCount;
+	}
+
+	public String getCtgNm() {
+		return ctgNm;
+	}
+
+	public void setCtgNm(String ctgNm) {
+		this.ctgNm = ctgNm;
+	}
+
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
 	}
 
 }

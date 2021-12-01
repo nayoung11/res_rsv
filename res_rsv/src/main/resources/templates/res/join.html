@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+<script type="text/javascript" src="/js/res/join.js"></script>
+</head>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div class="join-content">
+		<div class="join-wrapper">
+			<section id="section container">
+			<div class="member_join_text">회원가입</div>
+				<form id="joinForm" action="/res/join" method="POST">
+					<div class="sumbit_info_container">
+						<div class="info_item">
+							<div class="poa_text">아이디</div>
+							<input type="text" id="id" name="id">
+						</div>
+						<div class="info_item">
+							<div class="poa_text">비밀번호</div>
+							<input type="password" id="pw" name="pw">
+						</div>
+						<div class="info_item">
+							<div class="poa_text">비밀번호 확인</div>
+							<input type="password" id="pwCheck">
+						</div>
+						<div class="info_item">
+							<div class="poa_text">이름</div>
+							<input type="text" id="nm" name="nm">
+						</div>
+						<div class="info_item_phone">
+							<div class="poa_text">핸드폰 번호</div>
+							<input type="text" id="phoneNum" name="phoneNum">
+							<!-- <a href="#" class="confirm_btn">인증</a> -->
+						</div>
+						<div class="info_item">
+							<div class="poa_text">이메일</div>
+							<input type="text" id="email" name="email">
+						</div>
+						<div class="btn_area_right">
+							<button type="button" class="btn_write" onclick="joinMbr()">다음</button>
+						</div>
+					</div>
+				</form>
+			</section>
+		</div>
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>

@@ -12,14 +12,65 @@
 			TB_RS
 	</select>
 
-	<select id="selectDetail" parameterType="int"
-		resultType="RsVO">
+	<select id="selectAllByCtgNo" parameterType="string" resultType="RsVO">
 		SELECT
 			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
 			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
 			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
 		FROM 
-			TB_RS 
+			TB_RS
+		WHERE
+			CTG_NO = #{ctgNo}
+	</select>
+
+	<select id="selectAllByCtgNoPaging" parameterType="java.util.Map" resultType="RsVO">
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM 
+			TB_RS
+		WHERE
+			CTG_NO = #{ctgNo}
+		LIMIT
+			#{offset}, 6
+	</select>
+
+	<select id="selectAllPaging" parameterType="int" resultType="RsVO">
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM 
+			TB_RS
+		LIMIT
+			#{offset}, 6
+	</select>
+
+	<select id="searchListPaging" parameterType="java.util.Map" resultType="RsVO">
+		SELECT
+			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
+			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
+			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
+		FROM 
+			TB_RS
+		WHERE
+			NM LIKE CONCAT('%', #{searchKeyword}, '%')
+		LIMIT
+			#{offset}, 6
+	</select>
+
+	<select id="selectDetail" parameterType="int"
+		resultType="RsVO">
+		SELECT
+			A.NO, A.NM, A.POST_CODE, A.ADDR, A.BETTER_ADDR, 
+			A.RATING, A.PRICE_GROUP, A.CONTACT, A.SALES_TIME, 
+			A.HOLIDAY, A.PARKING_YN, A.THUMB, A.VIEW_COUNT,
+			B.CTG_NM
+		FROM 
+			TB_RS A
+			INNER JOIN TB_CTG B 
+				ON A.CTG_NO = B.CTG_NO
 		WHERE 
 			NO=#{no}
 	</select>
@@ -60,7 +111,7 @@
 			NO, NM, POST_CODE, ADDR, BETTER_ADDR, 
 			RATING, PRICE_GROUP, CONTACT, SALES_TIME, 
 			HOLIDAY, PARKING_YN, THUMB, VIEW_COUNT
-		FROM tb_rs ORDER BY RAND() LIMIT #{randomCount}
+		FROM TB_RS ORDER BY RAND() LIMIT #{randomCount}
 	</select>
 	
 	<update id="updateRsViewCount" parameterType="int">

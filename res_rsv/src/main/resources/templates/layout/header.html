@@ -3,19 +3,22 @@
 
 	<div class="menu-area">
 		<ul class="menu-list">
-			<li><a href="#">전체</a></li>
-			<li><a href="#">카테고리1</a></li>
-			<li><a href="#">카테고리2</a></li>
+			<li><a href="/res/list">전체</a></li>
+			<li th:each="item : ${CTG_LIST}">
+				<a th:href="|/res/list?ctgNo=${item.ctgNo}|" th:text="${item.ctgNm}"></a>
+			</li>
+			
 		</ul>
 		
 		<div class="menu-right-area">
-			<input class="search-input" placeholder="검색어를 입력해주세요." type="text">
-			<button class="cart-btn" type="button">장바구니</button>
+			<input id="searchInput" class="search-input" placeholder="검색어를 입력해주세요." type="text">
+			<img id="searchButton" class="search-btn" src="/img/ehe.png" alt="search-button">
 		</div>
 	</div>
 
 	<div class="floating-area">
-		<a href="#">회원가입</a>
-		<a href="#">로그인</a>
+		<a href="/res/join">회원가입</a>
+		<a href="/res/login">로그인</a>
+		<a href="/res/cart"><img class="basket-btn" src="/img/carticon.png" alt="basket-btn"></a>
 	</div>
 </header>

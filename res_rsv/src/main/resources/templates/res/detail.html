@@ -11,7 +11,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta th:replace="layout/head">
-<link rel="stylesheet" href="/css/common.css">
 </head>
 <body>
 	<div th:replace="layout/header :: header"></div>
@@ -22,14 +21,15 @@
 			</div>
 			<div class="res-info">
 				<p class="res-name">
-					<strong class="name" th:text="${rs.nm}"></strong>
-					<span class="shot_desc" th:text="${rs.addr}"></span>
-					<span th:text="${rs.betterAddr}"></span>
+					<strong class="name" th:text="${rs.nm}"></strong> <span
+						class="shot_desc" th:text="${rs.addr}"></span> <span
+						th:text="${rs.betterAddr}"></span>
 				</p>
 				<div class="evaluation">
-					<i class='icon-star'></i>
-					<span class="total" th:text="${rs.rating}"></span> <span
-						class="price" th:text="${rs.priceGroup}"></span> <span class="detail">중식</span>
+					<i class='icon-star'></i> <span class="total"
+						th:text="${rs.rating}"></span> <span class="price"
+						th:text="${rs.priceGroup}"></span> <span class="detail"
+						th:text="${rs.ctgNm}"></span>
 				</div>
 				<div class="place-info">
 					<div class="res-content">
@@ -56,6 +56,14 @@
 								<dd th:if="${rs.parkingYn.equals('Y')}">가능</dd>
 								<dd th:if="${rs.parkingYn.equals('N')}">불가능</dd>
 							</dl>
+							<div class="connect_link" th:each="item: ${rsSnsList}">
+								<div class="insta" th:if="${item.snsType == 1}">
+								<a class="insta" th:href="${item.snsUrl}" target="_blank"><img class="insta" src="/img/insta.png" alt="insta_link"></a>
+								</div>
+								<div class="face" th:if="${item.snsType == 2}">
+								<a class="face" th:href="${item.snsUrl}" target="_blank"><img class="face" src="/img/face.png" alt="face_link"></a>
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="res-rev-btn">

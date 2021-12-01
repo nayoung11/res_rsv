@@ -2,9 +2,13 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta th:replace="layout/head">
-<link rel="stylesheet" href="/css/common.css">
+<script type="text/javascript" src="/js/res/list.js"></script>
 </head>
 <body>
+	<form name="pagingForm" id="pagingForm" style="display: none;">
+		<input type="hidden" name="pageNum" id="pageNum" value="1">
+		<input type="hidden" name="ctgNo" id="ctgNo" th:if="${ctgNo != null}" th:value="${ctgNo}">
+	</form>
 	<div th:replace="layout/header :: header"></div>
 	<div class="list-content">
 		<section class="list-item">
@@ -12,7 +16,7 @@
 				<h3>레스토랑 목록</h3>
 			</div>
 			<div class="list-wrapper">
-				<ul class="item-list">
+				<ul id="rsItemList" class="item-list">
 					<li th:each="item : ${rsList}">
 						<a th:href="|/res/detail/${item.no}|">
 							<img class="thumb" alt="res-thumb" th:src="${item.thumb}">

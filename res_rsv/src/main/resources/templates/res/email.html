@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+</head>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div class="list-content2">
+		<section class="list-item">
+			<div class="top-title2">
+				<h3>1:1 이메일 문의</h3>
+			</div>
+			<div class="email_container">
+				<table class="tbl_write">
+					<tbody>
+						<tr>
+							<th>이름</th>
+							<td><input class="input_email_name" type="text"
+								placeholder="이름을 입력해 주세요"></td>
+						</tr>
+						<tr>
+							<th>파일 첨부</th>
+							<td><input class="input_upload_file" type="file"></td>
+						</tr>
+						<tr>
+							<td colspan="2"><textarea name id cols="30" rows="10"
+									placeholder="내용을 입력해 주세요"></textarea>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="email_send">
+				<button type="button" class="btn_register">
+					<a href="#">전송</a>
+				</button>
+			</div>
+		</section>
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+<script type="text/javascript" src="/js/res/search.js"></script>
+</head>
+<body>
+	<form name="pagingForm" id="pagingForm" style="display: none;">
+		<input type="hidden" name="pageNum" id="pageNum" value="1">
+		<input type="hidden" name="searchKeyword" id="searchKeyword" th:value="${searchKeyword}">
+	</form>
+	<div th:replace="layout/header :: header"></div>
+	<div class="list-content">
+		<section class="list-item">
+			<div class="top-title2">
+				<h3>레스토랑 검색</h3>
+			</div>
+			<div class="search-box">
+				<div class="tit">
+					<label for="sword">검색조건</label>
+				</div>
+				<div class="desc">
+					<input type="text" name="sword" id="sword" class="inp" th:value="${searchKeyword}"> 
+					<input type="button" onclick="search2()" class="btn_search" value="검색하기">
+				</div>
+			</div>
+			<div class="list-wrapper">
+				<ul id="rsItemList" class="item-list">
+					<li th:each="item : ${searchRsList}">
+						<a th:href="|/res/detail/${item.no}|">
+							<img class="thumb" alt="res-thumb" th:src="${item.thumb}">
+							<span class="item-title" th:text="${item.nm}"></span>
+						</a>
+						<span class="item-addr" th:text="|${item.addr} ${item.betterAddr}|"></span>
+					</li>
+				</ul>
+			</div>
+		</section>
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>

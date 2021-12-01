@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="layout/head">
+</head>
+<body>
+	<div th:replace="layout/header :: header"></div>
+	<div class="login-content">
+		<div class="login-wrapper">
+			<div class="por">
+				<span class="login_id">아이디</span> <input type="text" name="log"
+					id="user_login" class="log" placeholder="아이디">
+			</div>
+			<div class="por">
+				<span class="login_id">비밀번호</span> <input type="text" name="pwd"
+					id="user_pass" class="log" placeholder="비밀번호">
+			</div>
+			<div class="btn_login_area">
+				<button type="button" class="btn_login">
+					<a href="#">로그인</a>
+				</button>
+				<button type="button" class="btn_login">
+					<a href="/res/join">회원가입</a>
+				</button>
+			</div>
+		</div>
+
+	</div>
+	<div th:replace="layout/footer :: footer"></div>
+</body>
+</html>
