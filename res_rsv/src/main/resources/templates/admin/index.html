@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta th:replace="/layout/admin_head">
+<link rel="stylesheet" href="/css/admin/index.css">
+</head>
+<body>
+	<div class="login-page">
+		<div class="form">
+			<h2>RSPAGE - Admin Login</h2>
+			<form class="login-form">
+				<input type="text" id="username" placeholder="username" />
+				<input type="password" id="password" placeholder="password" />
+				<button type="button" onclick="adminLogin()">login</button>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -28,4 +28,9 @@ public class MainController {
 		return "index";
 	}
 
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test() {
+		return "res/test";
+	}
+
 }
